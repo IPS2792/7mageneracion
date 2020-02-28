@@ -1,0 +1,28 @@
+body{
+    background-color: lightgray;
+}
+
+header{
+    border: 1px solid orange;
+    background-color: white;
+}
+
+article{
+    border: 1px solid green;
+    background-color: white;
+}
+
+aside{
+    border: 1px solid lightskyblue;
+    background-color: white;
+}
+
+footer{
+    border: 1px solid purple;
+}
+
+li{
+    border: 1px solid orange;
+    list-style: none;
+    background-color: white;
+}

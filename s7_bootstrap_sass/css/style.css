@@ -1,0 +1,45 @@
+header {
+  height: 50px;
+  border-bottom: 1px solid black;
+}
+
+header .main-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .main-nav ul {
+  list-style: none;
+}
+
+header .main-nav ul li {
+  font-style: cursive;
+}
+
+header .main-nav ul li.active {
+  background: #284642;
+}
+
+header .main-nav ul li.hover {
+  cursor: pointer;
+}
+
+.general-form {
+  width: 50%;
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px auto;
+  display: block;
+}
+
+.general-form .group {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.general-form .group label {
+  font-weight: bold;
+}
+/*# sourceMappingURL=style.css.map */

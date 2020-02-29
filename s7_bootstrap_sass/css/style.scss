@@ -1,0 +1,41 @@
+$myColor: #284642;
+$myBorderColor: #385652;
+
+header{
+    height: 50px;
+    border-bottom:1px solid black;
+    .main-nav{
+        display:flex;
+        ul{
+            list-style:none;
+            li{
+                font-style: cursive;
+                &.active{
+                    background: $myColor;
+                }
+                &.hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.general-form{
+    width: 50%;
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    display: block;
+    .group{
+        width: 100%;
+        margin-bottom: 10px;
+        label{
+            font-weight: bold;
+        }
+    }
+    .btn-submit{
+        
+    }
+}

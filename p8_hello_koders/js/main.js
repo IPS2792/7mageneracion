@@ -1,3 +1,10 @@
-console.log('Hello World! XD');
-console.warn('Be aware dude!!!');
-console.error('duh!');
+let x;
+let y;
+
+x = 5;
+y = 10;
+
+console.log(x + y);
+console.log(x - y);
+console.log(x * y);
+console.log(x / y);

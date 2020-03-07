@@ -71,6 +71,7 @@ console.log(`Su nombre tiene ${counter} vocales`);
 //Otra forma de hacerlo es definir el metodo match y, dentro de la sección de parametros, ingresar una expresion regular*
 let counter2 = userName.match(/[aeiou]/gi).length
 console.log(counter2);
+//----------------------------------------------------------------------------------------------------------
 
 //##########################################################################################################
 

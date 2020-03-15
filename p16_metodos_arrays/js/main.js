@@ -413,6 +413,7 @@ const products = [
     }
   
 ]
+/*
 //Metodo filter: ayuda a filtrar un arreglo con una funcion
 const chips = products.filter((product) => {
     return product.type === 'chip';
@@ -434,7 +435,7 @@ const priceMore50 = products.filter((product) => {
 })
 console.log(priceMore50);
 
-//Metodo map: ayuda a aplicar a cada elemento del arreglo una funcion definida
+//Metodo map: ayuda a aplicar a cada elemento del arreglo una funcion definida.
 
 const divBetweenTwoOk = products.map((product) => {
     if ((product.price % 2) === 0){
@@ -465,3 +466,33 @@ const toSpanish = products.map((product) => {
     }
 })
 console.log(toSpanish);
+
+//Reduce itera sobre cada elemento del arreglo y devuelve
+
+const sum = products.reduce((accum, product, index) => {
+    console.log(accum);
+})
+*/
+const sum1 = products.reduce((total, product) => {
+    if(product.type === 'beer'){
+        total = total + product.price;
+        return total;
+    } return total;
+}, 0)
+console.log(sum1);
+
+const sum2 = products.reduce((total, product) => {
+    if(product.type === 'chip'){
+        total = total + product.price;
+        return total;
+    } return total;
+}, 0)
+console.log(sum2);
+
+const beers = products.reduce((total, product) => {
+    if(product.type === 'beer'){
+        total.push(product.description);
+        return total;
+    } return total;
+}, 0)
+console.log(beers);

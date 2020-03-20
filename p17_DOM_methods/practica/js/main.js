@@ -52,7 +52,7 @@ var kodersDb = [{
 
 //Teniendo el array kodersDb, realizar las siguientes operaciones:
 //1.- Obtener a todos los koders cuyas practicas entregadas (deliveredPractices) sea menor a 10
-let practicesLess10 = [];
+/*let practicesLess10 = [];
 
 kodersDb.forEach ((koder) => {
     if (koder.deliveredPractices < 10){
@@ -60,10 +60,16 @@ kodersDb.forEach ((koder) => {
     }
 });
 
-console.log(practicesLess10);
+console.log(practicesLess10);*/
+
+let filteredByPractices = kodersDb.filter((koder) => {
+    return koder.deliveredPractices <10
+})
+
+console.log(filteredByPractices);
 
 //2.- Obtener a todos los koders cuya asistencia (totalAssistance) sea menor a 20
-let assistanceLess20 = [];
+/*let assistanceLess20 = [];
 
 kodersDb.forEach((koder) => {
     if(koder.totalAssistance < 20){
@@ -71,44 +77,104 @@ kodersDb.forEach((koder) => {
     }
 });
 
-console.log(assistanceLess20); 
+console.log(assistanceLess20); */
+
+let filteredByAssistance = kodersDb.filter(koder => koder.totalAssistance <20)
+
+console.log(filteredByAssistance);
 
 //3.- Obtener el promedio general de prácticas entregadas
-let averageScore = 0;
+let sumScores = kodersDb.reduce((total, koder) =>{
+    return total += koder.deliveredPractices;
+}, 0);
 
-kodersDb.forEach((koder) => {
-    averageScore = averageScore + koder.deliveredPractices;
-});
-
-averageScore = averageScore / kodersDb.length;
+let averageScore = sumScores / kodersDb.length;
 
 console.log(averageScore);
 
 //4.- Obtener el promedio general de asistencias
-let averageAssistance = 0;
+let sumAssistances = kodersDb.reduce((total, koder) =>{
+    return total += koder.totalAssistance;
+}, 0);
 
-kodersDb.forEach((koder) => {
-    averageAssistance = averageAssistance + koder.totalAssistance;
-});
-
-averageAssistance = averageAssistance / kodersDb.length;
+let averageAssistance = sumAssistances / kodersDb.length;
 
 console.log(averageAssistance);
 
-//5.- En el elemento con el id "practices-container" insertar una fila por cada koder obtenido en el paso 1, debería tener la siguiente estructura:
-<tr>
-    <td>{número de koder}</td>
-    <td>{nombre completo del koder}</td>
-    <td>{prácticas del koder}</td>
-</tr>
-//6.- En el elemento con el id "assistances-container" insertar una fila por cada koder obtenido en el paso 2, debería tener la siguiente estructura:
+/*5.- En el elemento con el id "practices-container" insertar una fila por cada koder obtenido en el paso 1, debería tener la siguiente estructura:
 <tr>
     <td>{número de koder}</td>
     <td>{nombre completo del koder}</td>
     <td>{asistencias del koder}</td>
 </tr>
-//7.- En el elemento con el id "practices-average", mostrar el promedio general de prácticas entregadas obtenido en el paso 3
-//8.- En el elemento con el id "assistance-average", mostrar el promedio general de asistencias entregadas obtenido en el paso 4
+*/
+
+filteredByPractices.forEach((koder,index) => {
+    let koderPracticesRow = document.createElement("tr");
+    let koderNumberData = document.createElement("td");
+    let koderFullNameData = document.createElement("td");
+    let koderPracticesData = document.createElement("td");
+
+    let koderNumber = document.createTextNode(index + 1);
+    let koderFullName = document.createTextNode(koder.name + " " + koder.lastName);
+    let koderPractices = document.createTextNode(koder.deliveredPractices);
+
+    koderNumberData.appendChild(koderNumber);
+    koderFullNameData.appendChild(koderFullName);
+    koderPracticesData.appendChild(koderPractices);
+
+    koderPracticesRow.appendChild(koderNumberData);
+    koderPracticesRow.appendChild(koderFullNameData);
+    koderPracticesRow.appendChild(koderPracticesData);
+
+    let practicesContainer = document.getElementById("practices-container");
+    practicesContainer.appendChild(koderPracticesRow);
+})
+
+/*
+6.- En el elemento con el id "assistances-container" insertar una fila por cada koder obtenido en el paso 2, debería tener la siguiente estructura:
+<tr>
+    <td>{número de koder}</td>
+    <td>{nombre completo del koder}</td>
+    <td>{asistencias del koder}</td>
+</tr>
+*/
+filteredByAssistance.forEach((koder,index) => {
+    let koderAssistanceRow = document.createElement("tr");
+    let koderNumberData = document.createElement("td");
+    let koderFullNameData = document.createElement("td");
+    let koderAssistanceData = document.createElement("td");
+
+    let koderNumber = document.createTextNode(index + 1);
+    let koderFullName = document.createTextNode(koder.name + " " + koder.lastName);
+    let koderAssistance = document.createTextNode(koder.totalAssistance);
+
+    koderNumberData.appendChild(koderNumber);
+    koderFullNameData.appendChild(koderFullName);
+    koderAssistanceData.appendChild(koderAssistance);
+
+    koderAssistanceRow.appendChild(koderNumberData);
+    koderAssistanceRow.appendChild(koderFullNameData);
+    koderAssistanceRow.appendChild(koderAssistanceData);
+
+    let assistancesContainer = document.getElementById("assistances-container");
+    assistancesContainer.appendChild(koderAssistanceRow);
+})
+
+
+/*7.- En el elemento con el id "practices-average", mostrar el promedio general de prácticas entregadas obtenido en el paso 3*/
+
+let practicesAverage = document.getElementById("practices-average");
+let averageScoreInfo = document.createTextNode(averageScore);
+
+practicesAverage.appendChild(averageScoreInfo);
+
+/*8.- En el elemento con el id "assistance-average", mostrar el promedio general de asistencias entregadas obtenido en el paso 4*/
+
+let assistanceAverage = document.getElementById("assistance-average");
+let averageAssistanceInfo = document.createTextNode(averageAssistance);
+
+assistanceAverage.appendChild(averageAssistanceInfo);
 
 /****Notas***
 Recordemos que podemos acceder a alguna propiedad de un objeto y asignar su valor a una variable con la sintaxis:
